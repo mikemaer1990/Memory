@@ -1,0 +1,135 @@
+:root {
+  --background: #d9d9d9;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+}
+
+main {
+  text-align: center;
+  height: 100vh;
+}
+
+.game-container {
+  width: 50%;
+  height: 70%;
+  background-color: aliceblue;
+  margin: 5vh auto;
+  border-radius: 0.5rem;
+  border: 2px solid;
+}
+
+.card-container {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  width: 30%;
+  height: 20%;
+  background-color: palegoldenrod;
+  border: 2px solid;
+  margin: 0.25rem 0.5rem 0 0.5rem;
+  padding: 1rem;
+  min-width: 200px;
+  border-radius: 0.5rem;
+  transition: all 1s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  transform: perspective(1000px);
+  -moz-transform: perspective(5000px);
+}
+
+.card:hover {
+  cursor: col-resize;
+}
+
+.card:before {
+  content: "";
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 2px solid;
+  border-radius: 0.5rem;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+.card.clicked {
+  transform: rotateY(180deg);
+}
+
+.card.clicked:after {
+  content: "";
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 2px solid;
+  border-radius: 0.5rem;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+.card.one:after,
+.card.one:before {
+  background: url("./images/1.png") center center / contain no-repeat;
+}
+
+.card.two:after,
+.card.two:before {
+  background: url("./images/2.png") center center / contain no-repeat;
+}
+
+.card.three:after,
+.card.three:before {
+  background: url("./images/3.png") center center / contain no-repeat;
+}
+
+.card.four:after,
+.card.four:before {
+  background: url("./images/4.png") center center / contain no-repeat;
+}
+
+.card.five:after,
+.card.five:before {
+  background: url("./images/5.png") center center / contain no-repeat;
+}
+
+.card.six:after,
+.card.six:before {
+  background: url("./images/6.png") center center / contain no-repeat;
+}
