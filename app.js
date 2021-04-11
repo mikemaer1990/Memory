@@ -20,15 +20,20 @@ const gamePlay = () => {
     // Listen for clicks
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            clickCounter++;
-            if (clickCounter < 2) {
-                clickTracker.push(card);
-                card.classList.toggle('clicked');
+            if (card.classList.contains('clicked')) {
+                console.log('k');
+                // do nothing
+            } else {
+                clickCounter++;
+                if (clickCounter < 2) {
+                    clickTracker.push(card);
+                    card.classList.toggle('clicked');
 
-            } else if (clickCounter === 2) {
-                clickTracker.push(card);
-                card.classList.toggle('clicked');
-                setTimeout(checkCards, 1500, clickTracker);
+                } else if (clickCounter === 2) {
+                    clickTracker.push(card);
+                    card.classList.toggle('clicked');
+                    setTimeout(checkCards, 1500, clickTracker);
+                }
             }
         })
     });
