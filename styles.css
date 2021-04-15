@@ -27,6 +27,7 @@ main {
   text-align: center;
   height: 100vh;
 }
+
 .main-wrapper {
   display: flex;
   height: 100vh;
@@ -34,10 +35,12 @@ main {
   align-items: center;
   flex-direction: column;
 }
+
 .title {
   position: relative;
-  top: 1rem;
+  top: -2rem;
 }
+
 .menu,
 .game-over-menu {
   height: 150px;
@@ -47,9 +50,11 @@ main {
   display: flex;
   flex-direction: column;
 }
+
 .menu h2 {
   margin-bottom: 30px;
 }
+
 #play,
 #play-again {
   padding: 10px 0;
@@ -58,15 +63,18 @@ main {
   border: 1px solid;
   transition: all 0.4s ease;
 }
+
 #play:hover,
 #play-again:hover {
   cursor: pointer;
   color: white;
   background-color: black;
 }
+
 .game-over-menu {
   display: none;
 }
+
 .game-container {
   width: 50%;
   height: 70%;
@@ -128,15 +136,13 @@ main {
   backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
-  transform: perspective(-1000px);
-  -moz-transform: perspective(-1000px);
 }
 
 .card.clicked {
   transform: rotateY(180deg);
 }
 
-.card.clicked:after {
+/* .card.clicked:after {
   content: "";
   right: 0px;
   bottom: 0px;
@@ -150,7 +156,7 @@ main {
   backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
-}
+} */
 
 .card.one:after,
 .card.one:before {
@@ -201,18 +207,22 @@ main {
     width: 85%;
   }
 }
+
 @media screen and (max-width: 768px) {
   .game-container {
     width: 95%;
   }
+
   .card {
     min-width: 0;
   }
 }
+
 @media screen and (max-width: 540px) {
   .game-container {
     width: 97.5%;
   }
+
   .card {
     width: 32%;
     margin: 0.1rem 0.1rem 0 0.1rem;
