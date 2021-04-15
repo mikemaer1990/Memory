@@ -9,6 +9,8 @@ const gameOverTime = document.getElementById("gameOverTime");
 const gameOverScore = document.getElementById("gameOverScore");
 const playButton = document.getElementById("play");
 const playAgainButton = document.getElementById("play-again");
+const correctGuess = new Audio("./sounds/success.wav");
+
 
 playButton.addEventListener("click", () => {
     gameSetup();
@@ -110,6 +112,7 @@ const gamePlay = () => {
 
     const checkCards = (card, ...args) => {
         if (card[0].classList[1] === card[1].classList[1]) {
+            correctGuess.play();
             // hide / remove cards
             for (let item of card) {
                 item.style.opacity = 0;

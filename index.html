@@ -11,74 +11,75 @@
 
 <body>
     <main id="main">
-        <h1 class="title">Memory</h1>
-
-        <div class="menu">
-            <h2>Welcome to Memory!</h2>
-            <button id="play">Click here to play</button>
-        </div>
-        <div class="game-container">
-            <div class="card-container">
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
+        <div class="main-wrapper">
+            <h1 class="title">Memory</h1>
+            <div class="menu">
+                <h2>Welcome to Memory!</h2>
+                <button id="play">Click here to play</button>
+            </div>
+            <div class="game-container">
+                <div class="card-container">
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="card">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                </div>
-                <div class="card">
-                    <div class="front"></div>
-                    <div class="back"></div>
+                <div class="score-container">
+                    <p>Guesses: <span id="guesses">0</span></p>
+                    <p>Score <span id="score">0</span></p>
+                    <p>Time: <span id="time">0:00</span></p>
                 </div>
             </div>
-            <div class="score-container">
-                <p>Guesses: <span id="guesses">0</span></p>
-                <p>Score <span id="score">0</span></p>
-                <p>Time: <span id="time">0:00</span></p>
+            <div class="game-over-menu">
+                <h2>Hooray!</h2>
+                <p>You completed the game in <span id="gameOverScore">0</span> guesses, and it took you <span
+                        id="gameOverTime">0</span></p>
+                <button id="play-again">Play Again</button>
             </div>
-        </div>
-        <div class="game-over-menu">
-            <h2>Hooray!</h2>
-            <p>You completed the game in <span id="gameOverScore">0</span> guesses, and it took you <span
-                    id="gameOverTime">0</span></p>
-            <button id="play-again">Play Again</button>
         </div>
     </main>
     <script src="app.js"></script>

@@ -26,13 +26,17 @@ body {
 main {
   text-align: center;
   height: 100vh;
+}
+.main-wrapper {
   display: flex;
+  height: 100vh;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .title {
-  position: absolute;
-  top: 2rem;
+  position: relative;
+  top: 1rem;
 }
 .menu,
 .game-over-menu {
@@ -66,6 +70,10 @@ main {
 .game-container {
   width: 50%;
   height: 70%;
+  max-width: 880px;
+  max-height: 675px;
+  /* min-width: 670px;
+  min-height: 539px; */
   background-color: aliceblue;
   margin: 5vh auto;
   border-radius: var(--border-radius);
@@ -99,7 +107,7 @@ main {
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
   transform: perspective(1000px);
-  -moz-transform: perspective(5000px);
+  -moz-transform: perspective(1000px);
 }
 
 .card:hover {
@@ -120,6 +128,8 @@ main {
   backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
+  transform: perspective(-1000px);
+  -moz-transform: perspective(-1000px);
 }
 
 .card.clicked {
@@ -184,4 +194,27 @@ main {
   border: 2px solid;
   font-size: 20px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 1310px) {
+  .game-container {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .game-container {
+    width: 95%;
+  }
+  .card {
+    min-width: 0;
+  }
+}
+@media screen and (max-width: 540px) {
+  .game-container {
+    width: 97.5%;
+  }
+  .card {
+    width: 32%;
+    margin: 0.1rem 0.1rem 0 0.1rem;
+  }
 }
