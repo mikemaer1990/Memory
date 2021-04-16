@@ -99,93 +99,82 @@ main {
   flex-wrap: wrap;
 }
 
-.card {
-  position: relative;
+.card-wrapper {
   width: 30%;
   height: 20%;
-  background-color: palegoldenrod;
   border: 2px solid;
   margin: 0.25rem 0.5rem 0 0.5rem;
-  padding: 1rem;
   min-width: 200px;
+  border: 1px solid rgba(204, 204, 204, 0.336);
   border-radius: var(--border-radius);
-  transition: all 1s ease;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-  transform: perspective(1000px);
-  -moz-transform: perspective(1000px);
+  perspective: 600px;
 }
 
-.card:hover {
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
   cursor: pointer;
-}
-
-.card:before {
-  content: "";
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border: 2px solid;
-  border-radius: var(--border-radius);
-  transform: rotateY(180deg);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
+  position: relative;
 }
 
 .card.clicked {
   transform: rotateY(180deg);
 }
 
-/* .card.clicked:after {
-  content: "";
-  right: 0px;
-  bottom: 0px;
+.card-face {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  border: 2px solid;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
   border-radius: var(--border-radius);
-  transform: rotateY(180deg);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  font-weight: bold;
+  font-size: 40px;
   -webkit-backface-visibility: hidden;
-} */
-
-.card.one:after,
-.card.one:before {
-  background: url("./images/1.png") center center / contain no-repeat;
+  backface-visibility: hidden;
 }
 
-.card.two:after,
-.card.two:before {
-  background: url("./images/2.png") center center / contain no-repeat;
+.card-face.front {
+  background: url("./images/suggestion.png"), white;
+  background-position: center center;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-origin: padding-box;
 }
 
-.card.three:after,
-.card.three:before {
-  background: url("./images/3.png") center center / contain no-repeat;
+.one .card-face.back {
+  background: url("./images/1.png") center center / 25% no-repeat padding-box,
+    hsl(172, 23%, 68%);
+  transform: rotateY(180deg);
 }
-
-.card.four:after,
-.card.four:before {
-  background: url("./images/4.png") center center / contain no-repeat;
+.two .card-face.back {
+  background: url("./images/2.png") center center / 25% no-repeat padding-box,
+    hsl(172, 23%, 68%);
+  transform: rotateY(180deg);
 }
-
-.card.five:after,
-.card.five:before {
-  background: url("./images/5.png") center center / contain no-repeat;
+.three .card-face.back {
+  background: url("./images/3.png") center center / 25% no-repeat padding-box,
+    hsl(172, 23%, 68%);
+  transform: rotateY(180deg);
 }
-
-.card.six:after,
-.card.six:before {
-  background: url("./images/6.png") center center / contain no-repeat;
+.four .card-face.back {
+  background: url("./images/4.png") center center / 25% no-repeat padding-box,
+    hsl(172, 23%, 68%);
+  transform: rotateY(180deg);
+}
+.five .card-face.back {
+  background: url("./images/5.png") center center / 25% no-repeat padding-box,
+    hsl(172, 23%, 68%);
+  transform: rotateY(180deg);
+}
+.six .card-face.back {
+  background: url("./images/6.png") center center / 25% no-repeat padding-box,
+    hsl(172, 23%, 68%);
+  transform: rotateY(180deg);
 }
 
 .score-container {
@@ -213,7 +202,7 @@ main {
     width: 95%;
   }
 
-  .card {
+  .card-wrapper {
     min-width: 0;
   }
 }
@@ -223,7 +212,7 @@ main {
     width: 97.5%;
   }
 
-  .card {
+  .card-wrapper {
     width: 32%;
     margin: 0.1rem 0.1rem 0 0.1rem;
   }
