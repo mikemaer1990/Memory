@@ -10,7 +10,7 @@ const gameOverScore = document.getElementById("gameOverScore");
 const playButton = document.getElementById("play");
 const playAgainButton = document.getElementById("play-again");
 const correctGuess = new Audio("./sounds/success.wav");
-
+let gameRunning = false;
 
 playButton.addEventListener("click", () => {
     gameSetup();
@@ -23,6 +23,7 @@ playAgainButton.addEventListener("click", () => {
 });
 
 const gameSetup = () => {
+    gameRunning = true;
     cards.forEach((card) => {
         if (card.classList.contains("clicked")) {
             card.classList.remove("clicked");
@@ -58,14 +59,17 @@ const gameSetup = () => {
 const resetScoreBoard = () => {
     displayScore.innerHTML = 0;
     displayGuesses.innerHTML = 0;
+    displayTime.innerHTML = "0:00";
 };
 
-const trackTime = () => {
+
+
+const gamePlay = () => {
     let start = Date.now();
-
-    setInterval(function () {
+    const timer = setInterval(function () {
         let delta = Math.floor((Date.now() - start) / 1000);
-
+        let minutes = 0;
+        let seconds = 0;
         if (delta < 10) {
             displayTime.innerHTML = `0:0${delta}`;
         } else if (delta < 60) {
@@ -82,15 +86,11 @@ const trackTime = () => {
             }
         }
     }, 100);
-};
-
-const gamePlay = () => {
     let winningScore = 6;
     let clickCounter = 0;
     let clickTrackerList = [];
     let scoreCounter = 0;
     let scoreClickCounter = 0;
-    trackTime();
     // Listen for clicks
     cards.forEach((card) => {
         card.addEventListener("click", () => {
@@ -120,7 +120,6 @@ const gamePlay = () => {
             // increase score variable
             updateScore();
             if (scoreCounter === winningScore) {
-                gameBoard.style.display = "none";
                 gameOver(scoreClickCounter);
             }
         } else {
@@ -150,8 +149,18 @@ const gamePlay = () => {
 
     const gameOver = (clicks) => {
         gameBoard.style.display = "none";
-        gameOverMenu.style.display = "block";
-        gameOverScore.innerHTML = scoreClickCounter;
+        gameOverMenu.style.display = "flex";
+        gameOverScore.innerHTML = clicks;
         gameOverTime.innerHTML = displayTime.innerHTML;
+        clickCounter = 0;
+        clickTrackerList = [];
+        scoreCounter = 0;
+        scoreClickCounter = 0;
+        start = 0;
+        minutes = 0;
+        seconds = 0;
+        gameRunning = false;
+        clearInterval(timer)
     };
+
 };

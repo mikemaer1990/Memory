@@ -41,8 +41,7 @@ main {
   top: -2rem;
 }
 
-.menu,
-.game-over-menu {
+.menu {
   height: 150px;
   padding: 30px 80px;
   border: 1px solid;
@@ -50,7 +49,14 @@ main {
   display: flex;
   flex-direction: column;
 }
-
+.game-over-menu {
+  height: 150px;
+  padding: 10px 30px;
+  border: 1px solid;
+  border-radius: var(--border-radius);
+  justify-content: space-around;
+  flex-direction: column;
+}
 .menu h2 {
   margin-bottom: 30px;
 }
@@ -147,32 +153,32 @@ main {
 }
 
 .one .card-face.back {
-  background: url("./images/1.png") center center / 25% no-repeat padding-box,
+  background: url("./images/1.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
 .two .card-face.back {
-  background: url("./images/2.png") center center / 25% no-repeat padding-box,
+  background: url("./images/2.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
 .three .card-face.back {
-  background: url("./images/3.png") center center / 25% no-repeat padding-box,
+  background: url("./images/3.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
 .four .card-face.back {
-  background: url("./images/4.png") center center / 25% no-repeat padding-box,
+  background: url("./images/4.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
 .five .card-face.back {
-  background: url("./images/5.png") center center / 25% no-repeat padding-box,
+  background: url("./images/5.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
 .six .card-face.back {
-  background: url("./images/6.png") center center / 25% no-repeat padding-box,
+  background: url("./images/6.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
