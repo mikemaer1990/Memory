@@ -10,43 +10,48 @@ const gameOverScore = document.getElementById("gameOverScore");
 const playButton = document.getElementById("play");
 const playAgainButton = document.getElementById("play-again");
 const correctGuess = new Audio("./sounds/success.wav");
-let gameRunning = false;
+let winningScore, clickCounter, clickTrackerList, scoreCounter, scoreClickCounter;
 
 playButton.addEventListener("click", () => {
     gameSetup();
     gamePlay();
 });
 playAgainButton.addEventListener("click", () => {
-    gameOverMenu.style.display = "none";
     gameSetup();
     gamePlay();
+    gameOverMenu.style.display = "none";
 });
 
 const gameSetup = () => {
-    gameRunning = true;
+    // let classArray = [
+    //     "one",
+    //     "two",
+    //     "three",
+    //     "four",
+    //     "five",
+    //     "six",
+    //     "one",
+    //     "two",
+    //     "three",
+    //     "four",
+    //     "five",
+    //     "six",
+    // ];
     cards.forEach((card) => {
         if (card.classList.contains("clicked")) {
             card.classList.remove("clicked");
             card.style.opacity = 1;
         }
+        classArray.forEach(number => {
+            if (card.classList.contains(number)) {
+                card.classList.remove(number)
+            }
+        })
     });
     resetScoreBoard();
     menu.style.display = "none";
     gameBoard.style.display = "block";
-    let classArray = [
-        "one",
-        "two",
-        "three",
-        "four",
-        "five",
-        "six",
-        "one",
-        "two",
-        "three",
-        "four",
-        "five",
-        "six",
-    ];
+
 
     function shuffleArray(arr) {
         arr.sort(() => Math.random() - 0.5);
@@ -86,31 +91,29 @@ const gamePlay = () => {
             }
         }
     }, 100);
-    let winningScore = 6;
-    let clickCounter = 0;
-    let clickTrackerList = [];
-    let scoreCounter = 0;
-    let scoreClickCounter = 0;
+    winningScore = 6;
+    clickCounter = 0;
+    clickTrackerList = [];
+    scoreCounter = 0;
+    scoreClickCounter = 0;
     // Listen for clicks
     cards.forEach((card) => {
         card.addEventListener("click", () => {
-            if (card.classList.contains("clicked")) {
-                console.log("k");
-                // do nothing
-            } else {
+            if (!card.classList.contains("clicked") && clickCounter <= 1) {
                 clickCounter++;
                 if (clickCounter < 2) {
                     clickTracker(card);
-                } else if (clickCounter === 2) {
+                } else if (clickCounter === 2 && clickTrackerList.length <= 2) {
                     clickTracker(card);
                     updateGuess();
                     setTimeout(checkCards, 1500, clickTrackerList, scoreClickCounter);
+                    clickTrackerList = [];
                 }
             }
         });
     });
 
-    const checkCards = (card, ...args) => {
+    const checkCards = (card) => {
         if (card[0].classList[1] === card[1].classList[1]) {
             correctGuess.play();
             // hide / remove cards
@@ -120,16 +123,19 @@ const gamePlay = () => {
             // increase score variable
             updateScore();
             if (scoreCounter === winningScore) {
+                clickCounter = 0;
+                card = [];
                 gameOver(scoreClickCounter);
+                return;
             }
-        } else {
+        } else if (card[0].classList[1] != card[1].classList[1]) {
             // flip cards back over
             for (let item of card) {
                 item.classList.toggle("clicked");
             }
         }
         clickCounter = 0;
-        clickTrackerList = [];
+        card = [];
     };
 
     const updateGuess = () => {
@@ -143,8 +149,11 @@ const gamePlay = () => {
     };
 
     const clickTracker = (card) => {
-        clickTrackerList.push(card);
-        card.classList.toggle("clicked");
+        if (clickTrackerList.length <= 2) {
+            clickTrackerList.push(card);
+            card.classList.toggle("clicked");
+            return clickTrackerList;
+        }
     };
 
     const gameOver = (clicks) => {
@@ -152,15 +161,11 @@ const gamePlay = () => {
         gameOverMenu.style.display = "flex";
         gameOverScore.innerHTML = clicks;
         gameOverTime.innerHTML = displayTime.innerHTML;
-        clickCounter = 0;
-        clickTrackerList = [];
         scoreCounter = 0;
         scoreClickCounter = 0;
-        start = 0;
-        minutes = 0;
-        seconds = 0;
-        gameRunning = false;
+        clickCounter = 0;
         clearInterval(timer)
+        return;
     };
 
 };
