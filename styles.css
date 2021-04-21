@@ -49,6 +49,7 @@ main {
   display: flex;
   flex-direction: column;
 }
+
 .game-over-menu {
   height: 150px;
   padding: 10px 30px;
@@ -57,6 +58,7 @@ main {
   justify-content: space-around;
   flex-direction: column;
 }
+
 .menu h2 {
   margin-bottom: 30px;
 }
@@ -113,13 +115,13 @@ main {
   min-width: 200px;
   border: 1px solid rgba(204, 204, 204, 0.336);
   border-radius: var(--border-radius);
-  perspective: 600px;
+  perspective: 800px;
 }
 
 .card {
   width: 100%;
   height: 100%;
-  transition: transform 1s;
+  transition: transform 0.5s linear;
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
@@ -133,13 +135,7 @@ main {
   position: absolute;
   width: 100%;
   height: 100%;
-  line-height: 260px;
   border-radius: var(--border-radius);
-  color: white;
-  text-align: center;
-  padding: 2rem;
-  font-weight: bold;
-  font-size: 40px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -157,26 +153,31 @@ main {
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
+
 .two .card-face.back {
   background: url("./images/2.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
+
 .three .card-face.back {
   background: url("./images/3.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
+
 .four .card-face.back {
   background: url("./images/4.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
+
 .five .card-face.back {
   background: url("./images/5.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
   transform: rotateY(180deg);
 }
+
 .six .card-face.back {
   background: url("./images/6.png") center center / 6rem no-repeat padding-box,
     hsl(172, 23%, 68%);
